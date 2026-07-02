@@ -1,0 +1,23 @@
+                    doctors
+                 ─────────────
+                 doctor_id (PK)
+                       │
+                       │
+                       ▼
+                 appointments
+             appointment_id (PK)
+             patient_id (FK)
+             doctor_id (FK)
+                    │
+          ┌─────────┴─────────┐
+          │                   │
+          ▼                   ▼
+      patients           treatments
+ patient_id (PK)      treatment_id (PK)
+                            │
+                            ▼
+                         billing
+                     bill_id (PK)
+                  treatment_id (FK)
+                  patient_id (FK)
+
