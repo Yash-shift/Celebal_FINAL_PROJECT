@@ -1,23 +1,318 @@
-                    doctors
-                 ─────────────
-                 doctor_id (PK)
-                       │
-                       │
-                       ▼
-                 appointments
-             appointment_id (PK)
-             patient_id (FK)
-             doctor_id (FK)
-                    │
-          ┌─────────┴─────────┐
-          │                   │
-          ▼                   ▼
-      patients           treatments
- patient_id (PK)      treatment_id (PK)
-                            │
-                            ▼
-                         billing
-                     bill_id (PK)
-                  treatment_id (FK)
-                  patient_id (FK)
+# 🏥 Healthcare Analytics Medallion Architecture using Databricks
 
+![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
+![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
+![Delta Lake](https://img.shields.io/badge/Delta%20Lake-0A84FF?style=for-the-badge)
+![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github)
+
+---
+
+## 📌 Project Overview
+
+This project implements an **end-to-end Healthcare Analytics Data Pipeline** using the **Medallion Architecture (Bronze → Silver → Gold)** in **Databricks** with **PySpark**, **Delta Lake**, and **Spark SQL**.
+
+The pipeline ingests raw healthcare CSV files, performs data cleansing and transformation, creates business-ready analytics tables, and visualizes key healthcare metrics using Databricks Dashboards.
+
+---
+
+## 🚀 Architecture
+
+```
+                CSV Files
+                    │
+                    ▼
+        🥉 Bronze Layer (Raw Data)
+                    │
+                    ▼
+      🥈 Silver Layer (Clean & Validated)
+                    │
+                    ▼
+      🥇 Gold Layer (Business Analytics)
+                    │
+                    ▼
+      📊 Databricks Dashboard
+```
+
+---
+
+## 📂 Dataset
+
+The project uses five healthcare datasets:
+
+- 👤 Patients
+- 👨‍⚕️ Doctors
+- 📅 Appointments
+- 💳 Billing
+- 💉 Treatments
+
+---
+
+## 🛠 Tech Stack
+
+- Databricks Community Edition
+- PySpark
+- Spark SQL
+- Delta Lake
+- Unity Catalog
+- Git & GitHub
+
+---
+
+# 📁 Project Structure
+
+```
+healthcare-medallion-architecture/
+
+│
+├── datasets/
+│   ├── patients.csv
+│   ├── doctors.csv
+│   ├── appointments.csv
+│   ├── billing.csv
+│   └── treatments.csv
+│
+├── notebooks/
+│   ├── 01_setup_metadata.py
+│   ├── 02_bronze_ingestion.py
+│   ├── 03_silver_patients.py
+│   ├── 04_silver_doctors.py
+│   ├── 05_silver_appointments.py
+│   ├── 06_silver_billing.py
+│   ├── 07_silver_treatments.py
+│   ├── 08_gold_kpi_dashboard.py
+│   ├── 09_gold_doctor_performance.py
+│   ├── 10_gold_patient_analytics.py
+│   └── 11_gold_revenue_summary.py
+│
+├── screenshots/
+│
+├── README.md
+│
+└── requirements.txt
+```
+
+---
+
+# 🥉 Bronze Layer
+
+The Bronze layer stores the raw healthcare data exactly as received.
+
+### Features
+
+- CSV ingestion
+- Metadata-driven loading
+- Audit logging
+- Delta tables
+- Raw data preservation
+
+Tables:
+
+- bronze.patients
+- bronze.doctors
+- bronze.appointments
+- bronze.billing
+- bronze.treatments
+
+---
+
+# 🥈 Silver Layer
+
+The Silver layer performs data cleansing and validation.
+
+### Data Processing
+
+- Removed duplicate records
+- Standardized date formats
+- Converted data types
+- Null value handling
+- Data quality validation
+- Business rule enforcement
+
+Tables:
+
+- silver.patients
+- silver.doctors
+- silver.appointments
+- silver.billing
+- silver.treatments
+
+---
+
+# 🥇 Gold Layer
+
+The Gold layer contains business-ready analytical tables.
+
+### Gold Tables
+
+### 1. KPI Dashboard
+
+Provides executive-level KPIs such as:
+
+- Total Patients
+- Total Doctors
+- Total Appointments
+- Total Revenue
+- Average Bill
+- Appointment Completion Rate
+
+---
+
+### 2. Doctor Performance
+
+Includes:
+
+- Total Appointments
+- Revenue Generated
+- Average Bill
+- Doctor-wise Performance
+
+---
+
+### 3. Patient Analytics
+
+Includes:
+
+- Patient Age Groups
+- Gender Distribution
+- Insurance Provider Analysis
+- Total Billing
+
+---
+
+### 4. Revenue Summary
+
+Includes:
+
+- Monthly Revenue
+- Payment Methods
+- Payment Status
+- Average Revenue
+
+---
+
+# 📊 Dashboard
+
+The Databricks Dashboard contains:
+
+✅ KPI Cards
+
+- Total Patients
+- Total Doctors
+- Total Appointments
+- Total Revenue
+- Average Bill
+
+✅ Charts
+
+- 📈 Monthly Revenue Trend
+- 🥧 Appointment Status Distribution
+- 👨‍⚕️ Doctor Performance
+- 🛡 Insurance Provider Analysis
+- 👥 Patient Age Distribution
+
+---
+
+## 📸 Dashboard Preview
+
+> Add your dashboard screenshot here.
+
+```
+screenshots/dashboard.png
+```
+
+---
+
+## 📊 Data Pipeline Flow
+
+```
+Healthcare CSV Files
+        │
+        ▼
+ Bronze Layer
+        │
+        ▼
+ Silver Layer
+        │
+        ▼
+ Gold Layer
+        │
+        ▼
+ Dashboard
+```
+
+---
+
+## ✨ Key Features
+
+- End-to-End Medallion Architecture
+- Delta Lake Storage
+- PySpark Transformations
+- Metadata-driven Ingestion
+- Modular Notebook Design
+- Business KPI Generation
+- Interactive Dashboard
+- Healthcare Analytics
+
+---
+
+## 📈 Business Insights
+
+The dashboard enables users to analyze:
+
+- Monthly revenue trends
+- Appointment completion rate
+- Doctor performance
+- Patient demographics
+- Insurance provider distribution
+- Billing and payment analysis
+
+---
+
+## ▶️ How to Run
+
+1. Import all notebooks into Databricks.
+2. Upload the CSV datasets.
+3. Run notebooks in order:
+
+```
+01_setup_metadata
+
+↓
+
+02_bronze_ingestion
+
+↓
+
+03–07 Silver Layer
+
+↓
+
+08–11 Gold Layer
+```
+
+4. Open the Databricks Dashboard.
+
+---
+
+
+---
+
+## 👨‍💻 Author
+
+**Yash Dixit**
+
+---
+
+## ⭐ Future Improvements
+
+- Azure Data Lake Storage Gen2 integration
+- Azure Data Factory orchestration
+- Incremental data loading
+- Streaming ingestion
+- CI/CD deployment
+- Power BI integration
+- Automated data quality monitoring
+
+
+⭐ If you found this project useful, consider giving it a star!
