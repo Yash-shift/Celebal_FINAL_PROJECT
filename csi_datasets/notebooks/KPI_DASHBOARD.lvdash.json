@@ -1,0 +1,882 @@
+{
+  "datasets": [
+    {
+      "name": "0420683d",
+      "displayName": "KPI_data",
+      "config": {
+        "version": "1.1",
+        "source": "SELECT *\r\nFROM workspace.gold.kpi_dashboard",
+        "dimensions": [
+          {
+            "name": "total_patients",
+            "expr": "source.total_patients",
+            "displayName": "Total Patients"
+          },
+          {
+            "name": "total_doctors",
+            "expr": "source.total_doctors",
+            "displayName": "Total Doctors"
+          },
+          {
+            "name": "total_appointments",
+            "expr": "source.total_appointments",
+            "displayName": "Total Appointments"
+          },
+          {
+            "name": "completed",
+            "expr": "source.completed",
+            "displayName": "Completed"
+          },
+          {
+            "name": "cancelled",
+            "expr": "source.cancelled",
+            "displayName": "Cancelled"
+          },
+          {
+            "name": "no_show",
+            "expr": "source.no_show",
+            "displayName": "No Show"
+          },
+          {
+            "name": "scheduled",
+            "expr": "source.scheduled",
+            "displayName": "Scheduled"
+          },
+          {
+            "name": "total_revenue",
+            "expr": "source.total_revenue",
+            "displayName": "Total Revenue"
+          },
+          {
+            "name": "average_bill",
+            "expr": "source.average_bill",
+            "displayName": "Average Bill"
+          },
+          {
+            "name": "completion_rate",
+            "expr": "source.completion_rate",
+            "displayName": "Completion Rate"
+          },
+          {
+            "name": "cancel_rate",
+            "expr": "source.cancel_rate",
+            "displayName": "Cancel Rate"
+          },
+          {
+            "name": "no_show_rate",
+            "expr": "source.no_show_rate",
+            "displayName": "No Show Rate"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          },
+          {
+            "name": "Total Patient",
+            "expr": "SUM(total_patients)",
+            "displayName": "Total Patient"
+          },
+          {
+            "name": "Total Doctors",
+            "expr": "SUM(total_doctors)",
+            "displayName": "Total Doctors"
+          },
+          {
+            "name": "Total Appointments",
+            "expr": "SUM(total_appointments)",
+            "displayName": "Total Appointments"
+          },
+          {
+            "name": "total revenue",
+            "expr": "SUM(total_revenue)",
+            "displayName": "total revenue"
+          },
+          {
+            "name": "average bill",
+            "expr": "AVG(average_bill)",
+            "displayName": "average bill"
+          }
+        ]
+      }
+    },
+    {
+      "name": "b0d04a1d",
+      "displayName": "Doctor_data",
+      "config": {
+        "version": "1.1",
+        "source": "select * from \r\nworkspace.gold.doctor_performance",
+        "dimensions": [
+          {
+            "name": "doctor_id",
+            "expr": "source.doctor_id",
+            "displayName": "Doctor Id"
+          },
+          {
+            "name": "first_name",
+            "expr": "source.first_name",
+            "displayName": "First Name"
+          },
+          {
+            "name": "last_name",
+            "expr": "source.last_name",
+            "displayName": "Last Name"
+          },
+          {
+            "name": "specialization",
+            "expr": "source.specialization",
+            "displayName": "Specialization"
+          },
+          {
+            "name": "hospital_branch",
+            "expr": "source.hospital_branch",
+            "displayName": "Hospital Branch"
+          },
+          {
+            "name": "total_appointments",
+            "expr": "source.total_appointments",
+            "displayName": "Total Appointments"
+          },
+          {
+            "name": "total_revenue",
+            "expr": "source.total_revenue",
+            "displayName": "Total Revenue"
+          },
+          {
+            "name": "avg_bill",
+            "expr": "source.avg_bill",
+            "displayName": "Avg Bill"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "d0f5b0e2",
+      "displayName": "Patient_data",
+      "config": {
+        "version": "1.1",
+        "source": "select* from \r\nworkspace.gold.patient_analytics",
+        "dimensions": [
+          {
+            "name": "insurance_provider",
+            "expr": "source.insurance_provider",
+            "displayName": "Insurance Provider"
+          },
+          {
+            "name": "gender",
+            "expr": "source.gender",
+            "displayName": "Gender"
+          },
+          {
+            "name": "age_group",
+            "expr": "source.age_group",
+            "displayName": "Age Group"
+          },
+          {
+            "name": "total_patients",
+            "expr": "source.total_patients",
+            "displayName": "Total Patients"
+          },
+          {
+            "name": "total_billing",
+            "expr": "source.total_billing",
+            "displayName": "Total Billing"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "2ac0905d",
+      "displayName": "revenue_data",
+      "config": {
+        "version": "1.1",
+        "source": "select * from \r\nworkspace.gold.revenue_summary",
+        "dimensions": [
+          {
+            "name": "bill_month",
+            "expr": "source.bill_month",
+            "displayName": "Bill Month"
+          },
+          {
+            "name": "payment_method",
+            "expr": "source.payment_method",
+            "displayName": "Payment Method"
+          },
+          {
+            "name": "payment_status",
+            "expr": "source.payment_status",
+            "displayName": "Payment Status"
+          },
+          {
+            "name": "total_revenue",
+            "expr": "source.total_revenue",
+            "displayName": "Total Revenue"
+          },
+          {
+            "name": "total_bills",
+            "expr": "source.total_bills",
+            "displayName": "Total Bills"
+          },
+          {
+            "name": "average_bill",
+            "expr": "source.average_bill",
+            "displayName": "Average Bill"
+          }
+        ],
+        "measures": [
+          {
+            "name": "count",
+            "expr": "COUNT(*)",
+            "comment": "Represents the total number of rows in the dataset. Use this measure to count all",
+            "displayName": "Count"
+          }
+        ]
+      }
+    },
+    {
+      "name": "appointment_status",
+      "displayName": "Appointment Status Breakdown",
+      "config": {
+        "version": "1.1",
+        "source": "SELECT 'Completed' AS status, completed AS count\nFROM workspace.gold.kpi_dashboard\nUNION ALL\nSELECT 'Cancelled' AS status, cancelled AS count\nFROM workspace.gold.kpi_dashboard\nUNION ALL\nSELECT 'No Show' AS status, no_show AS count\nFROM workspace.gold.kpi_dashboard\nUNION ALL\nSELECT 'Scheduled' AS status, scheduled AS count\nFROM workspace.gold.kpi_dashboard\n",
+        "dimensions": [
+          {
+            "name": "status",
+            "expr": "source.status",
+            "displayName": "Status"
+          }
+        ],
+        "measures": [
+          {
+            "name": "appointment_count",
+            "expr": "SUM(count)",
+            "displayName": "Appointment Count"
+          }
+        ]
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "7681be00",
+      "displayName": "Untitled page",
+      "layout": [
+        {
+          "widget": {
+            "name": "84ba68e1",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0420683d",
+                  "fields": [
+                    {
+                      "name": "measure(Total Patient)",
+                      "expression": "MEASURE(`Total Patient`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "showTitle": false
+              },
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "y": {
+                  "fieldName": "measure(Total Patient)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 3,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "9a7f6540",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0420683d",
+                  "fields": [
+                    {
+                      "name": "measure(Total Doctors)",
+                      "expression": "MEASURE(`Total Doctors`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "y": {
+                  "fieldName": "measure(Total Doctors)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 5,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "992d5d3c",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0420683d",
+                  "fields": [
+                    {
+                      "name": "measure(Total Appointments)",
+                      "expression": "MEASURE(`Total Appointments`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "y": {
+                  "fieldName": "measure(Total Appointments)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "07e5231c",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0420683d",
+                  "fields": [
+                    {
+                      "name": "measure(average bill)",
+                      "expression": "MEASURE(`average bill`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "y": {
+                  "fieldName": "measure(average bill)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "label": {
+                  "show": false
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 0,
+            "width": 3,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "2f041cc7",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "0420683d",
+                  "fields": [
+                    {
+                      "name": "measure(total revenue)",
+                      "expression": "MEASURE(`total revenue`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "mark": {
+                "colors": [
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 2
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 3
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 4
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 5
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 6
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 7
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 8
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 9
+                  },
+                  {
+                    "themeColorType": "visualizationColors",
+                    "position": 10
+                  }
+                ]
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "y": {
+                  "fieldName": "measure(total revenue)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 7,
+            "y": 0,
+            "width": 2,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "caba8e31",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "appointment_status",
+                  "fields": [
+                    {
+                      "name": "measure(appointment_count)",
+                      "expression": "MEASURE(`appointment_count`)"
+                    },
+                    {
+                      "name": "status",
+                      "expression": "`status`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "frame": {
+                "title": "Appointment Status Distribution",
+                "showTitle": true
+              },
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "measure(appointment_count)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "color": {
+                  "fieldName": "status",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "832ae9a6",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "b0d04a1d",
+                  "fields": [
+                    {
+                      "name": "doctor_id",
+                      "expression": "`doctor_id`"
+                    },
+                    {
+                      "name": "sum(total_revenue)",
+                      "expression": "SUM(`total_revenue`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "doctor_id",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_revenue)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 4,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "9264850b",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2ac0905d",
+                  "fields": [
+                    {
+                      "name": "bill_month",
+                      "expression": "`bill_month`"
+                    },
+                    {
+                      "name": "sum(total_revenue)",
+                      "expression": "SUM(`total_revenue`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "bill_month",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_revenue)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 10,
+            "width": 12,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
